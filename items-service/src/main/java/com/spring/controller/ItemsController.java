@@ -1,9 +1,8 @@
 package com.spring.controller;
 
+import com.java.model.Item;
 import com.java.model.UserContext;
 import com.spring.config.AppConfig;
-import com.spring.dao.IItemDao;
-import com.spring.model.Items;
 import com.spring.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,24 +22,24 @@ public class ItemsController {
     }
 
     @PostMapping("/items")
-    public ResponseEntity<Integer> save(@RequestBody Items items) {
+    public ResponseEntity<Integer> save(@RequestBody Item items) {
         int i = service.save(items);
         return ResponseEntity.status(200).body(i);
     }
 
     @PutMapping("/items/{id}")
-    public ResponseEntity<Integer> update(@RequestBody Items items, @PathVariable("id") int id) {
+    public ResponseEntity<Integer> update(@RequestBody Item items, @PathVariable("id") int id) {
         int i = service.update(items, id);
         return ResponseEntity.status(200).body(i);
     }
     @GetMapping("/items")
-    public ResponseEntity<List<Items>> save() {
-        List<Items> items= service.selectAll();
+    public ResponseEntity<List<Item>> save() {
+        List<Item> items= service.selectAll();
         return ResponseEntity.status(200).body(items);
     }
     @GetMapping("/items/{id}")
-    public ResponseEntity<Items> save(@PathVariable("id") int id) {
-        Items items= service.select(id);
+    public ResponseEntity<Item> save(@PathVariable("id") int id) {
+        Item items= service.select(id);
         return ResponseEntity.status(200).body(items);
     }
     @GetMapping("/items/disp")

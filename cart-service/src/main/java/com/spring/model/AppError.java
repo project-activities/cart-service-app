@@ -1,16 +1,20 @@
 package com.spring.model;
 
+import org.springframework.http.HttpStatus;
+
 public class AppError {
     private String message;
-    private int status;
+    private int errorCode;
+    private HttpStatus httpStatus;
     private String serviceName = "cart-service";
 
     public AppError() {
     }
 
-    public AppError(String message, int status) {
+    public AppError(String message, int errorCode, HttpStatus httpStatus) {
         this.message = message;
-        this.status = status;
+        this.errorCode = errorCode;
+        this.httpStatus = httpStatus;
     }
 
     public String getMessage() {
@@ -21,12 +25,20 @@ public class AppError {
         this.message = message;
     }
 
-    public int getStatus() {
-        return status;
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
     }
 
     public String getServiceName() {
@@ -41,7 +53,9 @@ public class AppError {
     public String toString() {
         return "AppError{" +
                 "message='" + message + '\'' +
-                ", status=" + status +
+                ", errorCode=" + errorCode +
+                ", httpStatus=" + httpStatus +
+                ", serviceName='" + serviceName + '\'' +
                 '}';
     }
 }

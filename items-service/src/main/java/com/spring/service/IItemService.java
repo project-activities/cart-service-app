@@ -1,12 +1,12 @@
 package com.spring.service;
 
-import com.spring.model.Items;
+import com.java.model.Item;
 
 import java.util.List;
 
 public interface IItemService {
-    public Integer save(Items items);
-    public Integer update(Items items,Integer id);
-    public Items select(Integer id);
-    public List<Items> selectAll();
+    public Integer save(Item items);
+    public Integer update(Item items, Integer id);
+    public Item select(Integer id);
+    public List<Item> selectAll();
 }

@@ -1,22 +1,21 @@
 package com.spring.service.impl;
 
+import com.java.model.Item;
 import com.spring.dao.IItemDao;
 import com.spring.model.AppError;
-import com.spring.model.Items;
 import com.spring.service.IItemService;
 import com.spring.utils.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class ItemServiceImpl implements IItemService {
     @Autowired
-    IItemDao<Items,Integer> itemDao;
+    IItemDao<Item,Integer> itemDao;
 
     @Override
-    public Integer save(Items items) {
+    public Integer save(Item items) {
         try {
             return itemDao.save(items);
         } catch (ExceptionUtils e) {
@@ -30,7 +29,7 @@ public class ItemServiceImpl implements IItemService {
     }
 
     @Override
-    public Integer update(Items items,Integer id) {
+    public Integer update(Item items,Integer id) {
         try {
             return itemDao.update(items,id);
         } catch (ExceptionUtils e) {
@@ -44,12 +43,12 @@ public class ItemServiceImpl implements IItemService {
     }
 
     @Override
-    public Items select(Integer id) {
+    public Item select(Integer id) {
         return itemDao.select(id);
     }
 
     @Override
-    public List<Items> selectAll() {
+    public List<Item> selectAll() {
         return itemDao.selectAll();
     }
 }

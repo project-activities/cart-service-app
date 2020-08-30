@@ -1,15 +1,15 @@
 package com.spring.utils;
 
-import com.spring.model.Items;
+import com.java.model.Item;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ItemRowMapper implements RowMapper<Items> {
+public class ItemRowMapper implements RowMapper<Item> {
     @Override
-    public Items mapRow(ResultSet resultSet, int i) throws SQLException {
-        Items items=new Items();
+    public Item mapRow(ResultSet resultSet, int i) throws SQLException {
+        Item items=new Item();
         items.setId(resultSet.getInt("id"));
         items.setName(resultSet.getString("name"));
         items.setPrice(resultSet.getDouble("price"));
